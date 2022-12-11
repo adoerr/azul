@@ -1,8 +1,8 @@
 [package]
 name = "ubertooth-sys"
 version = "0.1.0"
+authors = ["Andreas Doerr <0xad@gmx.net>"]
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license  = "Apache-2.0 OR MIT"
 
 [dependencies]
