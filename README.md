@@ -3,7 +3,7 @@
 <br>
 
 <p align="center">
-    <img src="./bluetooth.png" widht="500" height="300">
+    <img src="./bluetooth.svg" widht="500" height="300">
 </p>
 
 ## Motivation
