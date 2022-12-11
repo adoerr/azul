@@ -6,6 +6,7 @@ edition = "2021"
 license  = "Apache-2.0 OR MIT"
 
 [dependencies]
+anyhow = { version  = "1.0.66" }
 
 [build-dependencies]
 anyhow = { version  = "1.0.66" }
