@@ -6,3 +6,7 @@ edition = "2021"
 license  = "Apache-2.0 OR MIT"
 
 [dependencies]
+
+[build-dependencies]
+anyhow = { version  = "1.0.66" }
+bindgen = { version  = "0.63.0" }
