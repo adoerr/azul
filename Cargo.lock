@@ -327,7 +327,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "ubertooth-sys"
+name = "ubertooth"
 version = "0.1.0"
 dependencies = [
  "anyhow",
