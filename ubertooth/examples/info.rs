@@ -13,15 +13,16 @@ fn main() -> Result<()> {
 
             let vendor_name = match usb_ids::Vendor::from_id(desc.vendor_id()) {
                 Some(vendor) => vendor.name(),
-                None => "Unknown vendor"
+                None => "Unknown vendor",
             };
 
             print!("vendor `{vendor_name}` ");
 
-            let product_name = match usb_ids::Device::from_vid_pid(desc.vendor_id(), desc.product_id()) {
-                Some(product) => product.name(),
-                None => "Unknown product"
-            };
+            let product_name =
+                match usb_ids::Device::from_vid_pid(desc.vendor_id(), desc.product_id()) {
+                    Some(product) => product.name(),
+                    None => "Unknown product",
+                };
 
             println!("product `{product_name}`");
         }

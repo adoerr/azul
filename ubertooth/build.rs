@@ -1,6 +1,6 @@
-use std::path::PathBuf;
+use std::{env, path::PathBuf};
+
 use anyhow::Result;
-use std::env;
 
 fn main() -> Result<()> {
     println!("cargo:rustc-link-search=/usr/local/lib");

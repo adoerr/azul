@@ -8,5 +8,5 @@ pub enum Error {
 
     /// Other error
     #[error(transparent)]
-    Other(#[from] anyhow::Error)
+    Other(#[from] anyhow::Error),
 }
