@@ -10,9 +10,6 @@ anyhow = { version  = "1.0.66" }
 rusb = { version = "0.9.1" }
 thiserror = { version = "1.0.37" }
 
-[dev-dependencies]
-usb-ids = { version = "0.2.5" }
-
 [build-dependencies]
 anyhow = { version  = "1.0.66" }
 bindgen = { version  = "0.63.0" }
