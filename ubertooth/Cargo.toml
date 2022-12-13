@@ -8,6 +8,7 @@ license  = "Apache-2.0 OR MIT"
 [dependencies]
 anyhow = { version  = "1.0.66" }
 rusb = { version = "0.9.1" }
+thiserror = { version = "1.0.37" }
 
 [dev-dependencies]
 usb-ids = { version = "0.2.5" }
