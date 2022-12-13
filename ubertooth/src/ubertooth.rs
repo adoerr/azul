@@ -2,7 +2,7 @@
 
 use rusb::{Device, DeviceList, GlobalContext};
 
-use crate::{Error, Result};
+use crate::Result;
 
 // OpenMoko Inc
 const VENDOR: u16 = 0x1d50;
@@ -19,7 +19,11 @@ impl Ubertooth {
     pub fn init() -> Result<Ubertooth> {
         let device = DeviceList::new()?.iter().try_find(|dev| {
             let desc = dev.device_descriptor()?;
-            Ok::<bool, Error>(desc.vendor_id() == VENDOR && desc.product_id() == PRODUCT)
+            if desc.vendor_id() == VENDOR && desc.product_id() == PRODUCT {
+                Ok(true)
+            } else {
+                Err(rusb::Error::NoDevice)
+            }
         })?;
 
         Ok(Ubertooth {
@@ -27,7 +31,7 @@ impl Ubertooth {
         })
     }
 
-    /// Return device version as `(major, minor, sub_minor)`
+    /// Return device version as `(major, minor, patch)`
     pub fn version(&self) -> Result<(u8, u8, u8)> {
         let v = self.device.device_descriptor()?.device_version();
         Ok((v.0, v.1, v.2))
