@@ -26,4 +26,10 @@ impl Ubertooth {
             device: device.expect("unexpected missing device"),
         })
     }
+
+    /// Return device version as `(major, minor, sub_minor)`
+    pub fn version(&self) -> Result<(u8, u8, u8)> {
+        let v = self.device.device_descriptor()?.device_version();
+        Ok((v.0, v.1, v.2))
+    }
 }
