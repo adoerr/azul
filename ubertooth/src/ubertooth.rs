@@ -2,10 +2,7 @@
 
 use std::time::Duration;
 
-use rusb::{
-    request_type, Device, DeviceList, Direction, GlobalContext, Recipient,
-    RequestType,
-};
+use rusb::{request_type, Device, DeviceList, Direction, GlobalContext, Recipient, RequestType};
 
 use crate::{
     usb::{Commands, Led},
