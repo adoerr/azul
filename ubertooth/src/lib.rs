@@ -7,6 +7,7 @@ include!(concat!(env!("OUT_DIR"), "/btbb.rs"));
 
 mod error;
 mod ubertooth;
+mod usb;
 
 pub use error::{Error, Result};
 
