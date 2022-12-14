@@ -8,3 +8,10 @@ pub(crate) enum Commands {
     GET_USRLED = 3,
     SET_USRLED = 4,
 }
+
+#[repr(u16)]
+#[allow(clippy::upper_case_acronyms)]
+pub enum Led {
+    OFF = 0,
+    ON = 1,
+}

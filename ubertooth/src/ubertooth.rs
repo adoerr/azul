@@ -2,9 +2,15 @@
 
 use std::time::Duration;
 
-use rusb::{request_type, Device, DeviceList, Direction, GlobalContext, Recipient, RequestType};
+use rusb::{
+    request_type, Device, DeviceList, Direction, GlobalContext, Recipient,
+    RequestType,
+};
 
-use crate::{usb::Commands, Error, Result};
+use crate::{
+    usb::{Commands, Led},
+    Error, Result,
+};
 
 // OpenMoko Inc
 const VENDOR: u16 = 0x1d50;
@@ -36,17 +42,30 @@ impl Ubertooth {
     }
 
     pub fn user_led(&self) -> Result<u8> {
-        let state = [0u8; 1];
+        let mut state = [0u8; 1];
 
-        self.device.open()?.write_control(
-            request_type(Direction::Out, RequestType::Vendor, Recipient::Endpoint),
+        self.device.open()?.read_control(
+            request_type(Direction::In, RequestType::Vendor, Recipient::Endpoint),
             Commands::GET_USRLED as u8,
             0,
             0,
-            &state,
+            &mut state,
             Duration::from_millis(10),
         )?;
 
         Ok(u8::from_ne_bytes(state))
+    }
+
+    pub fn set_user_led(&self, state: Led) -> Result<u8> {
+        let res = self.device.open()?.write_control(
+            request_type(Direction::Out, RequestType::Vendor, Recipient::Endpoint),
+            Commands::SET_USRLED as u8,
+            state as u16,
+            0,
+            &[],
+            Duration::from_millis(10),
+        )?;
+
+        Ok(res as u8)
     }
 }
