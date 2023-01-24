@@ -10,11 +10,9 @@
 
 <br>
 
-<i>"What I cannot create, I do not understand."</i>
+<i>"It all started with the innocent question why a <code>Bose SoundLink Mini</code> Bluetooth speaker would not connect ..."</i>
 
-The above quote from Richard P. Feynman says it all. This repo is a place to create and understand while learning things.
-
-More precisely it is mostly about playing around with Bluetooth and the [Ubertooth One](https://greatscottgadgets.com/ubertoothone/) gadget.
+Exploring Bluetooth and the [Ubertooth One](https://greatscottgadgets.com/ubertoothone/) gadget.
 <br>
 
 <p align="center">
