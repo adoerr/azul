@@ -6,11 +6,11 @@ edition = "2021"
 license  = "Apache-2.0 OR MIT"
 
 [dependencies]
-anyhow = { version  = "1.0.68" }
-rusb = { version = "0.9.1" }
-thiserror = { version = "1.0.38" }
+anyhow = { version = "1.0.86" }
+rusb = { version = "0.9.4" }
+thiserror = { version = "1.0.61" }
 
 [build-dependencies]
-anyhow = { version  = "1.0.66" }
-bindgen = { version  = "0.63.0" }
+anyhow = { version = "1.0.86" }
+bindgen = { version = "0.69.4" }
 

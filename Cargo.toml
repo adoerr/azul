@@ -2,3 +2,5 @@
 members = [
     "ubertooth",
 ]
+
+resolver = "2"
