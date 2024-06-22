@@ -5,3 +5,9 @@ members = [
 ]
 
 resolver = "2"
+
+[workspace.dependencies]
+anyhow = { version = "1.0.86" }
+bindgen = { version = "0.69.4" }
+rusb = { version = "0.9.4" }
+thiserror = { version = "1.0.61" }
