@@ -66,3 +66,15 @@ impl Ubertooth {
         Ok(res as u8)
     }
 }
+
+/// Count the number of Ubertooth devices connected.
+pub fn count() -> Result<usize> {
+    DeviceList::new()?.iter().try_fold(0, |acc, dev| {
+        let desc = dev.device_descriptor()?;
+        if desc.vendor_id() == VENDOR && desc.product_id() == PRODUCT {
+            Ok(acc + 1)
+        } else {
+            Ok(acc)
+        }
+    })
+}
