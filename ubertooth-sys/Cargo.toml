@@ -1,0 +1,15 @@
+[package]
+name = "ubertooth-sys"
+version = "0.1.0"
+authors = ["Andreas Doerr <0xad@gmx.net>"]
+edition = "2021"
+license  = "Apache-2.0 OR MIT"
+
+[dependencies]
+anyhow = { version = "1.0.86" }
+thiserror = { version = "1.0.61" }
+
+[build-dependencies]
+anyhow = { version = "1.0.86" }
+bindgen = { version = "0.69.4" }
+

@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "ubertooth",
+    "ubertooth-sys"
 ]
 
 resolver = "2"
