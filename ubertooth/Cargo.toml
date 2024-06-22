@@ -7,6 +7,7 @@ license  = "Apache-2.0 OR MIT"
 
 [dependencies]
 anyhow = { workspace = true }
+argh = { workspace = true }
 rusb = { workspace = true }
 thiserror = { workspace = true }
 
