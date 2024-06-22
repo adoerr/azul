@@ -7,6 +7,7 @@ pub(crate) enum Commands {
     PING = 0,
     GET_USRLED = 3,
     SET_USRLED = 4,
+    XMAS = 73,
 }
 
 #[repr(u16)]
