@@ -77,6 +77,25 @@ impl Ubertooth {
         Ok(())
     }
 
+    /// Get firmware revision number.
+    pub fn info(&self) -> Result<String> {
+        let mut buf = [0u8; 257];
+
+        let res = self.handle.read_control(
+            request_type(Direction::In, RequestType::Vendor, Recipient::Endpoint),
+            Commands::GET_REV_NUM as u8,
+            0,
+            0,
+            &mut buf,
+            Duration::from_millis(10),
+        )?;
+
+        // first two bytes are the old firmware revision format
+        let rev = String::from_utf8_lossy(&buf[3..res - 1]);
+
+        Ok(rev.parse().expect("invalid firmware revision"))
+    }
+
     /// Enable Christmas lights effect.
     pub fn xmas_lights(&self) -> Result<()> {
         self.handle.write_control(

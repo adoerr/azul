@@ -7,6 +7,9 @@ struct Cli {
     /// count number of devices
     #[argh(switch, short = 'c')]
     count: bool,
+    /// information about the firmware
+    #[argh(switch, short = 'i')]
+    info: bool,
     /// enable Xmas lights
     #[argh(switch, short = 'x')]
     xmas: bool,
@@ -23,6 +26,10 @@ fn main() -> Result<()> {
 
     if cli.xmas {
         ubertooth.xmas_lights()?;
+    }
+
+    if cli.info {
+        println!("Firmware revision: {:?}", ubertooth.info()?);
     }
 
     Ok(())

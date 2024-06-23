@@ -5,8 +5,13 @@
 /// Ubertooth USB commands
 pub(crate) enum Commands {
     PING = 0,
+    /// Get user LED state
     GET_USRLED = 3,
+    /// Set user LED state
     SET_USRLED = 4,
+    /// Get firmware revision number
+    GET_REV_NUM = 33,
+    /// Enable Christmas lights effect
     XMAS = 73,
 }
 
