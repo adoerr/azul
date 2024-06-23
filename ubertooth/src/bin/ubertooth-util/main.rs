@@ -20,10 +20,9 @@ fn main() -> Result<()> {
     }
 
     let ubertooth = ubertooth::Ubertooth::start()?;
-    println!("Ubertooth version: {:?}", ubertooth.version()?);
 
     if cli.xmas {
-        unimplemented!("xmas lights")
+        ubertooth.xmas_lights()?;
     }
 
     Ok(())

@@ -74,6 +74,19 @@ impl Ubertooth {
 
         Ok(res as u8)
     }
+
+    pub fn xmas_lights(&self) -> Result<()> {
+        self.handle.write_control(
+            request_type(Direction::Out, RequestType::Vendor, Recipient::Endpoint),
+            Commands::XMAS as u8,
+            0,
+            0,
+            &[],
+            Duration::from_millis(10),
+        )?;
+
+        Ok(())
+    }
 }
 
 /// Count the number of [`Ubertooth `]devices connected.
