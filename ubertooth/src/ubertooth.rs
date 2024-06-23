@@ -47,6 +47,7 @@ impl Ubertooth {
         Ok((v.0, v.1, v.2))
     }
 
+    /// Read user LED state.
     pub fn user_led(&self) -> Result<u8> {
         let mut state = [0u8; 1];
 
@@ -62,8 +63,9 @@ impl Ubertooth {
         Ok(u8::from_ne_bytes(state))
     }
 
-    pub fn set_user_led(&self, state: Led) -> Result<u8> {
-        let res = self.handle.write_control(
+    /// Set uer LED state.
+    pub fn set_user_led(&self, state: Led) -> Result<()> {
+        self.handle.write_control(
             request_type(Direction::Out, RequestType::Vendor, Recipient::Endpoint),
             Commands::SET_USRLED as u8,
             state as u16,
@@ -72,9 +74,10 @@ impl Ubertooth {
             Duration::from_millis(10),
         )?;
 
-        Ok(res as u8)
+        Ok(())
     }
 
+    /// Enable Christmas lights effect.
     pub fn xmas_lights(&self) -> Result<()> {
         self.handle.write_control(
             request_type(Direction::Out, RequestType::Vendor, Recipient::Endpoint),
@@ -89,7 +92,7 @@ impl Ubertooth {
     }
 }
 
-/// Count the number of [`Ubertooth `]devices connected.
+/// Count the number of [`Ubertooth`] devices connected.
 pub fn count() -> Result<usize> {
     DeviceList::new()?.iter().try_fold(0, |acc, dev| {
         let desc = dev.device_descriptor()?;

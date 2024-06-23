@@ -7,7 +7,7 @@ struct Cli {
     /// count number of devices
     #[argh(switch, short = 'c')]
     count: bool,
-    /// xmas lights
+    /// enable Xmas lights
     #[argh(switch, short = 'x')]
     xmas: bool,
 }
