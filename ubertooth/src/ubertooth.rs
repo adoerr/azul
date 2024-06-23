@@ -24,10 +24,10 @@ pub struct Ubertooth {
 }
 
 impl Ubertooth {
-    /// Initialize the [`Ubertooth`].
+    /// Initialize and open the [`Ubertooth`].
     ///
     /// Using the first Ubertooth Once device found.
-    pub fn init() -> Result<Ubertooth> {
+    pub fn start() -> Result<Ubertooth> {
         if let Some(device) = DeviceList::new()?.iter().try_find(|dev| {
             let desc = dev.device_descriptor()?;
             Ok::<bool, Error>(desc.vendor_id() == VENDOR && desc.product_id() == PRODUCT)
@@ -41,7 +41,7 @@ impl Ubertooth {
         }
     }
 
-    /// Return device version as `(major, minor, patch)`
+    /// Return [`Ubertooth`] version as `(major, minor, patch)`
     pub fn version(&self) -> Result<(u8, u8, u8)> {
         let v = self.descriptor.device_version();
         Ok((v.0, v.1, v.2))
@@ -76,7 +76,7 @@ impl Ubertooth {
     }
 }
 
-/// Count the number of Ubertooth devices connected.
+/// Count the number of [`Ubertooth `]devices connected.
 pub fn count() -> Result<usize> {
     DeviceList::new()?.iter().try_fold(0, |acc, dev| {
         let desc = dev.device_descriptor()?;

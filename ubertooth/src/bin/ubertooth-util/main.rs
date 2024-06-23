@@ -7,6 +7,9 @@ struct Cli {
     /// count number of devices
     #[argh(switch, short = 'c')]
     count: bool,
+    /// xmas lights
+    #[argh(switch, short = 'x')]
+    xmas: bool,
 }
 
 fn main() -> Result<()> {
@@ -14,6 +17,13 @@ fn main() -> Result<()> {
 
     if cli.count {
         println!("{}", ubertooth::count()?);
+    }
+
+    let ubertooth = ubertooth::Ubertooth::start()?;
+    println!("Ubertooth version: {:?}", ubertooth.version()?);
+
+    if cli.xmas {
+        unimplemented!("xmas lights")
     }
 
     Ok(())

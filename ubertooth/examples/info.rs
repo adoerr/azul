@@ -2,7 +2,7 @@ use anyhow::Result;
 use ubertooth::{Led, Ubertooth};
 
 fn main() -> Result<()> {
-    let ut = Ubertooth::init()?;
+    let ut = Ubertooth::start()?;
     println!("version {:?}", ut.version()?);
 
     println!("user led {:?}", ut.user_led()?);
