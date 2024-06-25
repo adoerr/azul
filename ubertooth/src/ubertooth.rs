@@ -9,7 +9,7 @@ use rusb::{
 
 use crate::{
     usb::{Commands, Led},
-    Error, Result,
+    Error, Info, Result,
 };
 
 // OpenMoko Inc
@@ -78,7 +78,7 @@ impl Ubertooth {
     }
 
     /// Get firmware revision number.
-    pub fn info(&self) -> Result<String> {
+    pub fn info(&self) -> Result<Info> {
         let mut buf = [0u8; 257];
 
         let res = self.handle.read_control(
@@ -105,10 +105,12 @@ impl Ubertooth {
             Duration::from_millis(10),
         )?;
 
-        let info = String::from_utf8_lossy(&buf[..res]);
-        dbg!(info);
+        let comp = String::from_utf8_lossy(&buf[..res]);
 
-        Ok(rev.parse().expect("invalid firmware revision"))
+        Ok(Info {
+            version: rev.to_string(),
+            compile: comp.to_string(),
+        })
     }
 
     /// Enable Christmas lights effect.

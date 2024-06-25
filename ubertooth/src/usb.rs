@@ -24,6 +24,7 @@ pub enum Led {
     ON = 1,
 }
 
+#[derive(Debug)]
 /// Firmware and compile information
 pub struct Info {
     /// Firmware version
