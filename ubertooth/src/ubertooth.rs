@@ -91,7 +91,7 @@ impl Ubertooth {
         )?;
 
         // first two bytes are the old firmware revision format
-        let rev = String::from_utf8_lossy(&buf[3..res]);
+        let version = String::from_utf8_lossy(&buf[3..res]);
 
         let mut buf = [0u8; 257];
 
@@ -105,11 +105,11 @@ impl Ubertooth {
             Duration::from_millis(10),
         )?;
 
-        let comp = String::from_utf8_lossy(&buf[..res]);
+        let compile = String::from_utf8_lossy(&buf[..res]);
 
         Ok(Info {
-            version: rev.to_string(),
-            compile: comp.to_string(),
+            version: version.to_string(),
+            compile: compile.to_string(),
         })
     }
 
