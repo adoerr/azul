@@ -32,3 +32,13 @@ pub struct Info {
     /// Compile information
     pub compile: String,
 }
+
+impl std::fmt::Display for Info {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "Firmware : {}\nCompile  : {}",
+            self.version, self.compile
+        )
+    }
+}

@@ -29,7 +29,7 @@ fn main() -> Result<()> {
     }
 
     if cli.info {
-        println!("Firmware revision: {:?}", ubertooth.info()?);
+        println!("{}", ubertooth.info()?);
     }
 
     Ok(())
