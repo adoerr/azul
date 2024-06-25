@@ -11,6 +11,8 @@ pub(crate) enum Commands {
     SET_USRLED = 4,
     /// Get firmware revision number
     GET_REV_NUM = 33,
+    /// Get compile information
+    GET_COMPILE_INFO = 55,
     /// Enable Christmas lights effect
     XMAS = 73,
 }

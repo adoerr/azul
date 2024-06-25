@@ -93,6 +93,21 @@ impl Ubertooth {
         // first two bytes are the old firmware revision format
         let rev = String::from_utf8_lossy(&buf[3..res - 1]);
 
+        let mut buf = [0u8; 257];
+
+        // get the compile info
+        let res = self.handle.read_control(
+            request_type(Direction::In, RequestType::Vendor, Recipient::Endpoint),
+            Commands::GET_COMPILE_INFO as u8,
+            0,
+            0,
+            &mut buf,
+            Duration::from_millis(10),
+        )?;
+
+        let info = String::from_utf8_lossy(&buf[..res - 1]);
+        dbg!(info);
+
         Ok(rev.parse().expect("invalid firmware revision"))
     }
 
