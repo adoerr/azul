@@ -10,6 +10,6 @@ mod ubertooth;
 mod usb;
 
 pub use error::{Error, Result};
-pub use usb::Led;
+pub use usb::{Info, Led};
 
 pub use crate::ubertooth::{count, Ubertooth};

@@ -23,3 +23,11 @@ pub enum Led {
     OFF = 0,
     ON = 1,
 }
+
+/// Firmware and compile information
+pub struct Info {
+    /// Firmware version
+    pub version: String,
+    /// Compile information
+    pub compile: String,
+}
