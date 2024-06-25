@@ -91,7 +91,7 @@ impl Ubertooth {
         )?;
 
         // first two bytes are the old firmware revision format
-        let rev = String::from_utf8_lossy(&buf[3..res - 1]);
+        let rev = String::from_utf8_lossy(&buf[3..res]);
 
         let mut buf = [0u8; 257];
 
@@ -105,7 +105,7 @@ impl Ubertooth {
             Duration::from_millis(10),
         )?;
 
-        let info = String::from_utf8_lossy(&buf[..res - 1]);
+        let info = String::from_utf8_lossy(&buf[..res]);
         dbg!(info);
 
         Ok(rev.parse().expect("invalid firmware revision"))
