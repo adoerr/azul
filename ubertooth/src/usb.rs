@@ -9,8 +9,14 @@ pub(crate) enum Commands {
     GET_USRLED = 3,
     /// Set user LED state
     SET_USRLED = 4,
+    /// Get device serial number
+    GET_SERIAL_NUM = 14,
+    /// Get part ID
+    GET_PART_ID = 15,
     /// Get firmware revision number
     GET_REV_NUM = 33,
+    /// Get board ID
+    GET_BOARD_ID = 35,
     /// Get compile information
     GET_COMPILE_INFO = 55,
     /// Enable Christmas lights effect
