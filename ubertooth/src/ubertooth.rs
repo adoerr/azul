@@ -77,7 +77,7 @@ impl Ubertooth {
         Ok(())
     }
 
-    /// Get firmware revision number.
+    /// Get firmware and compile info.
     pub fn info(&self) -> Result<Info> {
         let mut buf = [0u8; 257];
 
@@ -111,6 +111,11 @@ impl Ubertooth {
             version: version.to_string(),
             compile: compile.to_string(),
         })
+    }
+
+    /// Get HW bard and microcontroller info.
+    pub fn board(&self) -> Result<String> {
+        Ok("0815".to_string())
     }
 
     /// Enable Christmas lights effect.
